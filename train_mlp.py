@@ -15,7 +15,7 @@ from stable_baselines3.common.env_util import make_atari_env
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.callbacks import EvalCallback, StopTrainingOnNoModelImprovement
 from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.vec_env import VecFrameStack, DummyVecEnv
+from stable_baselines3.common.vec_env import VecFrameStack, DummyVecEnv, VecTransposeImage
 import gymnasium as gym
 import ale_py
 
@@ -66,7 +66,7 @@ hyperparams_sets = [
     }
 ]
 
-def model_dqn(params, total_timesteps=15000, eval_freq=15000):
+def model_dqn(params, train_env, eval_env, total_timesteps=15000, eval_freq=15000):
     """Train a DQN model with the given parameters."""
     model = DQN(
         policy=params['policy'],
@@ -113,7 +113,12 @@ os.makedirs("./tensorboard", exist_ok=True)
 trained_models = []
 for params in hyperparams_sets:
     print(f"\nTraining with {params['name']} configuration...")
-    model = model_dqn(params, total_timesteps=15000)
+    train_env = make_env(env)
+    eval_env = make_env(env)
+    if params['policy'] == 'CnnPolicy':
+        train_env = VecTransposeImage(train_env)
+        eval_env = VecTransposeImage(eval_env)
+    model = model_dqn(params, train_env, eval_env, total_timesteps=15000)
     trained_models.append(model)
     print(f"Completed training for {params['name']}")
 
