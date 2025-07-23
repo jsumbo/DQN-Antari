@@ -1,0 +1,9 @@
+stable-baselines3[extra]
+gymnasium[atari]
+torch
+pyglet
+numpy
+matplotlib
+ale-py
+IPython
+tensorboard 
