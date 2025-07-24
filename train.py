@@ -35,30 +35,31 @@ eval_env = make_env(env)
 hyperparams_sets = [
     {
         'policy': 'CnnPolicy',
-        'learning_rate': 5e-4,
-        'gamma': 0.90,
+        'learning_rate': 7e-4,
+        'gamma': 0.92,  # Lower discount factor
         'batch_size': 64,
-        'buffer_size': 2000,  # Reduced from 5000
-        'exploration_fraction': 1.0,
-        'exploration_initial_eps': 0.01,
-        'exploration_final_eps': 0.01,
+        'buffer_size': 3000,
+        'exploration_fraction': 0.3,
+        'exploration_initial_eps': 0.3,  # Low initial exploration
+        'exploration_final_eps': 0.1,   # High final exploration (continuous exploration)
         'double_q': True,
         'prioritized_replay': True,
-        'name': 'CNN_Optimized'
+        'name': 'CNN_ContinuousExploration'
     },
-    {
-        'policy': 'MlpPolicy',
-        'learning_rate': 5e-3,
-        'gamma': 0.95,
-        'batch_size': 64,
-        'buffer_size': 2000,  # Reduced from 5000
-        'exploration_fraction': 1.0,
-        'exploration_initial_eps': 0.001,
-        'exploration_final_eps': 0.02,
-        'double_q': True,
-        'prioritized_replay': True,
-        'name': 'MLP_HighLR'
-    }
+    # {
+    #     'policy': 'MlpPolicy',
+    #     'learning_rate': 5e-3,
+    #     'gamma': 0.95,
+    #     'batch_size': 64,
+    #     'buffer_size': 2000,  # Reduced from 5000
+    #     'exploration_fraction': 1.0,
+    #     'exploration_initial_eps': 0.001,
+    #     'exploration_final_eps': 0.02,
+    #     'double_q': True,
+    #     'prioritized_replay': True,
+    #     'name': 'MLP_HighLR'
+    # },
+    
 ]
 
 def model_dqn(params, train_env, eval_env, total_timesteps=15000, eval_freq=15000):
