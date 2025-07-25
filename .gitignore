@@ -80,14 +80,9 @@ Desktop.ini
 *.zip
 *.onnx
 models/
-best_models/
 
 # TensorBoard and logs
 logs/
-tensorboard/
-
-# Videos and outputs
-atari_videos/
 
 # System files
 *.swp
