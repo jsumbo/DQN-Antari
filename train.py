@@ -46,19 +46,19 @@ hyperparams_sets = [
         'prioritized_replay': True,
         'name': 'CNN_ContinuousExploration'
     },
-    # {
-    #     'policy': 'MlpPolicy',
-    #     'learning_rate': 5e-3,
-    #     'gamma': 0.95,
-    #     'batch_size': 64,
-    #     'buffer_size': 2000,  # Reduced from 5000
-    #     'exploration_fraction': 1.0,
-    #     'exploration_initial_eps': 0.001,
-    #     'exploration_final_eps': 0.02,
-    #     'double_q': True,
-    #     'prioritized_replay': True,
-    #     'name': 'MLP_HighLR'
-    # },
+    {
+        'policy': 'MlpPolicy',
+        'learning_rate': 5e-3,
+        'gamma': 0.95,
+        'batch_size': 64,
+        'buffer_size': 2000,  # Reduced from 5000
+        'exploration_fraction': 1.0,
+        'exploration_initial_eps': 0.001,
+        'exploration_final_eps': 0.02,
+        'double_q': True,
+        'prioritized_replay': True,
+        'name': 'MLP_HighLR'
+    },
     
 ]
 
