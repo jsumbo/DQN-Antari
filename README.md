@@ -36,14 +36,15 @@ python play.py --model_path dqn_model.zip
 
 Below is a sample of the results table printed by `train.py`:
 
-| Name                     | Policy     | Learning Rate | Gamma | Batch Size | Epsilon Start | Epsilon End | Mean Reward | Mean Length | Explanation                                                                 | Trained By         |
-|--------------------------|------------|---------------|-------|------------|----------------|-------------|--------------|--------------|------------------------------------------------------------------------------|---------------------|
-| CNN_ContinuousExploration | CnnPolicy  | 0.0007        | 0.92  | 64         | 0.3            | 0.1         | 407.40       | 623.50       | Balanced exploration strategy led to solid reward performance               | Festus Bigirimana   |
-| CNN_Optimized            | CnnPolicy  | 0.0005        | 0.90  | 64         | 0.01           | 0.01        | 401.00       | 1200.00      | Low exploration helped stabilize policy quickly                             | Festus Bigirimana   |
-| CNN_DefaultStyle         | CnnPolicy  | 0.0001        | 0.99  | 32         | 1.0            | 0.01        | 224.70       | 1252.10      | Default settings showed slow but stable learning, reward was moderate       | Festus Bigirimana   |
-| CNN_HighExploration      | CnnPolicy  | 0.0003        | 0.95  | 64         | 1.0            | 0.2         | 378.00       | 567.80       | High exploration boosted early learning but flattened performance later     | Festus Bigirimana   |
-| MLP_HighLR               | MlpPolicy  | 0.005         | 0.95  | 64         | 0.001          | 0.02        | 150.00       | 800.00       | Very high learning rate led to unstable training and poor rewards           | Festus Bigirimana   |
-| MLP_StableLR             | MlpPolicy  | 0.0007        | 0.98  | 32         | 0.5            | 0.1         | 35.70        | 695.10       | Stable learning rate but MLP underperforms on visual input like Atari       | Festus Bigirimana   |
+| Name                     | Policy     | Hyperparameters                                      | Mean Reward | Mean Length | Explanation                                                                 | Trained By         |
+|--------------------------|------------|------------------------------------------------------|-------------|--------------|------------------------------------------------------------------------------|---------------------|
+| CNN_ContinuousExploration | CnnPolicy  | LR=0.0007, Gamma=0.92, Batch=64, EpsStart=0.3, EpsEnd=0.1 | 407.40      | 623.50       | Balanced exploration strategy led to solid reward performance               | Festus Bigirimana   |
+| CNN_Optimized            | CnnPolicy  | LR=0.0005, Gamma=0.90, Batch=64, EpsStart=0.01, EpsEnd=0.01 | 401.00      | 1200.00      | Low exploration helped stabilize policy quickly                             | Festus Bigirimana   |
+| CNN_DefaultStyle         | CnnPolicy  | LR=0.0001, Gamma=0.99, Batch=32, EpsStart=1.0, EpsEnd=0.01 | 224.70      | 1252.10      | Default settings showed slow but stable learning, reward was moderate       | Festus Bigirimana   |
+| CNN_HighExploration      | CnnPolicy  | LR=0.0003, Gamma=0.95, Batch=64, EpsStart=1.0, EpsEnd=0.2 | 378.00      | 567.80       | High exploration boosted early learning but flattened performance later     | Festus Bigirimana   |
+| MLP_HighLR               | MlpPolicy  | LR=0.005, Gamma=0.95, Batch=64, EpsStart=0.001, EpsEnd=0.02 | 150.00      | 800.00       | Very high learning rate led to unstable training and poor rewards           | Festus Bigirimana   |
+| MLP_StableLR             | MlpPolicy  | LR=0.0007, Gamma=0.98, Batch=32, EpsStart=0.5, EpsEnd=0.1 | 35.70       | 695.10       | Stable learning rate but MLP underperforms on visual input like Atari       | Festus Bigirimana   |
+
 
 
 
