@@ -1,6 +1,7 @@
 # Project Overview
 
 This project implements a Deep Q-Network (DQN) agent to play the Atari Assault game using Stable Baselines3 and Gymnasium. The goal is to train an agent to play the Assault-v5 Atari environment using reinforcement learning, compare different policy architectures, and evaluate the agent's performance.
+## Link to Video: https://youtu.be/qY8Qm716TH8
 
 ## Environment
 
